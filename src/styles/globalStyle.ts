@@ -28,6 +28,9 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
+	font-weight : 600;
+	color: ${p=> p.theme.textColor};
+	background-color: ${p=> p.theme.bgColor};
 }
 ol, ul {
 	list-style: none;

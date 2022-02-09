@@ -1,18 +1,18 @@
 import { DefaultTheme } from "styled-components";
 
 export const darkTheme : DefaultTheme ={
-    textColor : "#3A4261",
-    hoverColor : "#6B4270",
-    highlightColor : "#486231",
-    bgColor : "#303653",
-    bgColor1 : "#333554",
-    bgColor2 : "#323756"
+    textColor : "#FFFFBB",
+    hoverColor : "#90BBBB",
+    highlightColor : "#FF8800",
+    bgColor : "#303053",
+    bgColor1 : "#454555",
+    bgColor2 : "#353565"
 }
 export const lightTheme : DefaultTheme ={
-    textColor : "#987095",
-    hoverColor : "F8F8E5",
-    highlightColor : "#977095",
+    textColor : "#202040",
+    hoverColor : "#2080A0",
+    highlightColor : "#FF0088",
     bgColor : "#F8F8E5",
-    bgColor1 : "#E1DBF0",
-    bgColor2 : "#C4BFE3"
+    bgColor1 : "#E0E0E5",
+    bgColor2 : "#F8F8C5"
 }

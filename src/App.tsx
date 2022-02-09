@@ -1,4 +1,4 @@
-import Schedular from "./Schedular";
+import Schedular from "./components/Schedular";
 import { GlobalStyle } from "./styles/globalStyle";
 import { useRecoilValue } from 'recoil';
 import { ThemeProvider } from 'styled-components';
