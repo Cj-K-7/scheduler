@@ -1,21 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { RecoilRoot } from 'recoil';
-import { useRecoilValue } from 'recoil';
-import { ThemeProvider } from 'styled-components';
-import { isDarkAtom } from './atoms';
-import { darkTheme, lightTheme } from './css/theme';
 import App from './App';
-
-
-const isDark = useRecoilValue(isDarkAtom);
 
 ReactDOM.render(
   <React.StrictMode>
     <RecoilRoot>
-    <ThemeProvider theme={isDark ? darkTheme : lightTheme} >
       <App />
-      </ThemeProvider>
     </RecoilRoot>
   </React.StrictMode>,
   document.getElementById("root")
