@@ -41,18 +41,6 @@ const Title = styled.h1<TitleProps>`
     }
   }
 `;
-const CategorySelect = styled.select`
-  border: none;
-  justify-self: flex-start;
-  font-size : 18px;
-  color : ${p=>p.theme.textColor};
-  background-color: ${p=>p.theme.bgColor2};
-  padding: 8px 14px;
-  letter-spacing : 2px;
-  &:focus{
-    outline:none;
-  }
-`;
 const ScheduleUl = styled.ul`
   margin-top: 18px;
 `;
