@@ -1,10 +1,11 @@
 import { useRecoilState, useRecoilValue } from "recoil";
 import styled from "styled-components";
-import { Categories, categoryStateAtom, isDarkAtom, scheduleListAtom, schedulesSelector } from "../atoms";
+import { isDarkAtom, scheduleListAtom, schedulesSelector } from "../atoms";
 import Form from "./Form";
 import List from "./List";
+import { useEffect } from "react";
+import Select from "./Select";
 import "../styles/font.css";
-import React, { useEffect } from "react";
 
 interface TitleProps {
   isDark: boolean;
@@ -44,6 +45,7 @@ const CategorySelect = styled.select`
   border: none;
   justify-self: flex-start;
   font-size : 18px;
+  color : ${p=>p.theme.textColor};
   background-color: ${p=>p.theme.bgColor2};
   padding: 8px 14px;
   letter-spacing : 2px;
@@ -58,11 +60,7 @@ const ScheduleUl = styled.ul`
 function Schedular() {
   const [isDark, setIsDark] = useRecoilState(isDarkAtom);
   const allSchedules = useRecoilValue(scheduleListAtom);
-  const [category, setCategory] = useRecoilState(categoryStateAtom);
   const schedules = useRecoilValue(schedulesSelector);
-  const onInput = (event: React.FormEvent<HTMLSelectElement>) => {
-    setCategory(event.currentTarget.value as any);
-  };
 
   useEffect(()=>{
     localStorage.setItem("SCHEDULES", JSON.stringify(allSchedules))
@@ -77,11 +75,7 @@ function Schedular() {
         </button>
       </Title>
       <hr />
-      <CategorySelect value={category} onInput={onInput}>
-        <option value={Categories.ToDo}>toDos</option>
-        <option value={Categories.Doing}>On it</option>
-        <option value={Categories.Done}>Done</option>
-      </CategorySelect>
+      <Select/>
       <Form />
       <ScheduleUl>
         {schedules?.map((data) => (
