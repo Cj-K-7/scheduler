@@ -1,9 +1,27 @@
 # schedular
 
- make schedular
+ make "Schedule-To-Do list"
 
  npx create-react-app --template typescript
 
-## npm -i list
-- recoil
+## Library
+- ## **Recoil**
+
+ 1. atom
+```typescript
+ atom<Type>({
+    key : "key",
+    default : //default value
+});
+```
+ 2.selector
+```typescript
+ selector({
+    key : "key",
+    get : ({ get, getCallback }) =>{
+        const result = get(atom());
+        return result;
+    }
+});
+```
 - styled-components / @types/styled-components

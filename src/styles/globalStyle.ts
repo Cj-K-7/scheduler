@@ -31,6 +31,7 @@ body {
 	font-weight : 600;
 	color: ${p=> p.theme.textColor};
 	background-color: ${p=> p.theme.bgColor};
+	letter-spacing : 5px;
 }
 ol, ul {
 	list-style: none;
@@ -46,4 +47,8 @@ q:before, q:after {
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
-}`;
+}
+input, button { 
+	letter-spacing : 3px;
+}
+`;
