@@ -36,7 +36,18 @@ function List({id, text, time, category }: ISchedule) {
     const {
       currentTarget: { value },
     } = event;
-    text=value;
+    setState((pre) => {
+      const index = pre.findIndex((list) => list.id === id);
+      const newList = [...pre];
+      const newState = {
+        id,
+        text: value,
+        time,
+        category,
+      };
+      newList.splice(index, 1, newState);
+      return newList;
+    });
   }
   const onClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     const {
@@ -55,7 +66,7 @@ function List({id, text, time, category }: ISchedule) {
       return newList;
     });
   };
-  
+
   const onClickDel = () => {
     setState((arr)=>{
       return arr.filter((data)=> data.id !== id);
