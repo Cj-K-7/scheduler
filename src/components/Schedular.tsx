@@ -1,10 +1,10 @@
 import { useRecoilState, useRecoilValue } from "recoil";
 import styled from "styled-components";
-import { Categories, categoryStateAtom, isDarkAtom, schedulesSelector } from "../atoms";
+import { Categories, categoryStateAtom, isDarkAtom, scheduleListAtom, schedulesSelector } from "../atoms";
 import Form from "./Form";
 import List from "./List";
 import "../styles/font.css";
-import React from "react";
+import React, { useEffect } from "react";
 
 interface TitleProps {
   isDark: boolean;
@@ -57,12 +57,17 @@ const ScheduleUl = styled.ul`
 
 function Schedular() {
   const [isDark, setIsDark] = useRecoilState(isDarkAtom);
+  const allSchedules = useRecoilValue(scheduleListAtom);
   const [category, setCategory] = useRecoilState(categoryStateAtom);
   const schedules = useRecoilValue(schedulesSelector);
-  console.log(schedules);
   const onInput = (event: React.FormEvent<HTMLSelectElement>) => {
     setCategory(event.currentTarget.value as any);
   };
+
+  useEffect(()=>{
+    localStorage.setItem("SCHEDULES", JSON.stringify(allSchedules))
+  },[allSchedules]);
+
   return (
     <Container>
       <Title isDark={isDark}>
@@ -80,7 +85,7 @@ function Schedular() {
       <Form />
       <ScheduleUl>
         {schedules?.map((data) => (
-          <List {...data} />
+          <List key={data.id} {...data} />
         ))}
       </ScheduleUl>
     </Container>

@@ -30,7 +30,7 @@ const Btn = styled.button`
   border: none;
 `;
 
-function List({ id, text, time, category }: ISchedule) {
+function List({id, text, time, category }: ISchedule) {
   const setState = useSetRecoilState(scheduleListAtom);
   const onChange = (event: React.FormEvent<HTMLInputElement>) => {
     const {
@@ -55,8 +55,14 @@ function List({ id, text, time, category }: ISchedule) {
       return newList;
     });
   };
+  
+  const onClickDel = () => {
+    setState((arr)=>{
+      return arr.filter((data)=> data.id !== id);
+    })
+  }
   return (
-    <Schedule key={id}>
+    <Schedule>
       <What defaultValue={text} onChange={onChange}/>
       <div>
         <When>{time}</When>
@@ -75,6 +81,7 @@ function List({ id, text, time, category }: ISchedule) {
             Done
           </Btn>
         )}
+        <Btn onClick={onClickDel}>❌</Btn>
       </div>
     </Schedule>
   );

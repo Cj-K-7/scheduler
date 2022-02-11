@@ -1,5 +1,5 @@
 import "recoil";
-import { atom, selector } from "recoil";
+import { atom, selector, useRecoilValue } from "recoil";
 
 export enum Categories {
     "ToDo"="ToDo",
@@ -19,9 +19,12 @@ export const isDarkAtom = atom({
   default: false,
 });
 
+const localData = localStorage.getItem("SCHEDULES")
+const JSONDATA = JSON.parse(localData as any)
+
 export const scheduleListAtom = atom<ISchedule[]>({
   key: "scheduleList",
-  default: [],
+  default: JSONDATA||[],
 });
 
 export const categoryStateAtom = atom<Categories>({
