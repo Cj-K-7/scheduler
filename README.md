@@ -2,7 +2,7 @@
 
  make "Schedule-To-Do list"
 
- result **[[Here](https://github.com/Cj-K-7/scheduler/)]**
+ result **[[Here](https://cj-k-7.github.io/scheduler/)]**
 
  npx create-react-app --template typescript
 
