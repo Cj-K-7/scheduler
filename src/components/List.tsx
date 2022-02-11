@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { Categories, ISchedule, scheduleListAtom } from "../atoms";
 
 const Schedule = styled.li`
-  padding: 8px 12px;
+  padding: 10px 14px;
   background-color: ${(p) => p.theme.bgColor1};
   margin-bottom: 16px;
   div {
@@ -15,19 +15,33 @@ const Schedule = styled.li`
 `;
 
 const What = styled.input`
+  margin-bottom : 5px;
+  padding: 2px 8px;
+  width : 95%;
   background: inherit;
   border: none;
   font-size: 18px;
-  padding: 8px;
   color: ${(p) => p.theme.highlightColor};
+  &:hover{
+    color: ${(p) => p.theme.hoverColor};
+    box-shadow: 0px 3px 0px ${p=>p.theme.bgColor2};
+  }
 `;
 const When = styled.div`
   padding: 8px;
 `;
 const Btn = styled.button`
+  position: relative;
   margin-left: 20px;
+  border-radius : 5px;
   padding: 8px;
   border: none;
+  box-shadow: 3px 3px 1px ${p=>p.theme.textColor};
+  &:active{
+    left: 3px;
+    top: 3px;
+    box-shadow: none;
+  }
 `;
 
 function List({id, text, time, category }: ISchedule) {
@@ -76,7 +90,7 @@ function List({id, text, time, category }: ISchedule) {
     <Schedule>
       <What defaultValue={text} onChange={onChange}/>
       <div>
-        <When>{time}</When>
+        <When>{time.replace('T', '\n')}<span></span></When>
         {category !== Categories.ToDo && (
           <Btn name={Categories.ToDo} onClick={onClick}>
             to_Do

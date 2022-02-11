@@ -11,7 +11,7 @@ interface TitleProps {
 }
 
 const Container = styled.div`
-  max-width: 400px;
+  max-width: 600px;
   display: flex;
   flex-direction: column;
   justify-content: center;
