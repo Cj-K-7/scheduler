@@ -2,10 +2,13 @@
 
  make "Schedule-To-Do list"
 
+ result **[[Here](https://github.com/Cj-K-7/scheduler/)]**
+
  npx create-react-app --template typescript
 
 ## Library
 - ## **Recoil**
+hook 사용법 핵심
 
  1. atom
 ```typescript
