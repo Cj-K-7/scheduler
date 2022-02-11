@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/main.857d6f80.css","mappings":"kFAGA,OAAE,4BAAiC","sources":["styles/font.css"],"sourcesContent":["@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@500&display=swap');\r\n\r\nbody{font-family: 'Dosis', sans-serif;}\r\n*{font-family: 'Dosis', sans-serif;}"],"names":[],"sourceRoot":""}
